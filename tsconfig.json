@@ -1,7 +1,14 @@
 {
     "compilerOptions": {
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "target": "esnext",
+        "module": "esnext",
+        "moduleResolution": "bundler",
+        "lib": ["esnext", "dom"],
         "types": [
-            "vite/client"
+            "vite/client",
+            "naive-ui/volar"
         ]   
     },
     // "include": [

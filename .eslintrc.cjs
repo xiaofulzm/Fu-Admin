@@ -40,7 +40,7 @@ module.exports = {
       }
     ],
     "no-unused-vars": [
-      "error",
+      "off",
       {
         argsIgnorePattern: "^_",
         varsIgnorePattern: "^_"
