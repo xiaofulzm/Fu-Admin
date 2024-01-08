@@ -37,7 +37,7 @@ module.exports = {
       {
         argsIgnorePattern: "^_",
         varsIgnorePattern: "^_"
-      }
+      },
     ],
     "no-unused-vars": [
       "off",
@@ -65,7 +65,7 @@ module.exports = {
     ],
     // Prettier
     "prettier/prettier": [
-      "error",
+      "off",
       {
         endOfLine: "auto"
       }
