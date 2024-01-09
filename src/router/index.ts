@@ -3,7 +3,7 @@ import { createRouter, createWebHistory } from "vue-router";
 const Layouts = () => import("~/layouts/index.vue");
 
 // createWebHashHistory
-const routes = [
+export const constantRoutes = [
   {
     path: "/",
     component: Layouts,
@@ -11,21 +11,26 @@ const routes = [
     children: [
       {
         path: "home",
-        component: () => import("~/view/home.vue"),
+        component: () => import("~/view/home/index.vue"),
         name: "home",
         meta: {
           title: "首页",
-          svgIcon: "home",
-          affix: true,
+          icon: "home",
         },
       },
     ],
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: () => import("~/view/login/index.vue"),
+    meta: {},
   },
 ];
 
 const router = createRouter({
   history: createWebHistory(),
-  routes,
+  routes: constantRoutes,
 });
 
 export default router;

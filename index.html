@@ -4,12 +4,52 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="/favicon.ico" />
-    <link rel="stylesheet" href="/app-loading.css" />
     <title>%VITE_APP_TITLE%</title>
+    <style>
+      .loading {
+        position: relative;
+        top: 45vh;
+        left: 45vw;
+        width: 50px;
+        perspective: 200px;
+      }
+
+      .loading:before,
+      .loading:after {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        content: "";
+        animation: jumping 0.5s infinite alternate;
+        background: rgba(0, 0, 0, 0);
+      }
+
+      .loading:before {
+        left: 0;
+      }
+
+      .loading:after {
+        right: 0;
+        animation-delay: 0.15s;
+      }
+
+      @keyframes jumping {
+        0% {
+          transform: scale(1) translateY(0px) rotateX(0deg);
+          box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+        }
+
+        100% {
+          transform: scale(1.2) translateY(-25px) rotateX(45deg);
+          background: #000;
+          box-shadow: 0 25px 40px #000;
+        }
+      }
+    </style>
   </head>
   <body>
     <div id="app">
-      <!-- <div id="app-loading"></div> -->
+      <div class="loading"></div>
     </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
