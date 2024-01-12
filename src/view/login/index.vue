@@ -9,16 +9,17 @@
 
 </template> -->
 <script setup lang="ts">
-import { darkTheme } from "naive-ui";
+import { darkTheme, useThemeVars } from "naive-ui";
 import type { GlobalTheme } from "naive-ui";
 import dayjs from "dayjs";
 import { ref } from "vue";
 import { userStore } from "../../store/modules/user";
+console.log(useThemeVars());
 
 const userState = userStore();
 console.log(userState.count);
 
-const theme = ref<GlobalTheme | null>(null);
+const theme = ref<GlobalTheme | null>(darkTheme);
 
 console.log(darkTheme);
 </script>

@@ -1,9 +1,9 @@
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 
 const Layouts = () => import("~/layouts/index.vue");
 
 // createWebHashHistory
-export const constantRoutes = [
+export const constantRoutes: RouteRecordRaw[] = [
   {
     path: "/",
     component: Layouts,
