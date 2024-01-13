@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { darkTheme } from "naive-ui";
+// import { darkTheme } from "naive-ui";
 </script>
 
 <template>
-  <n-config-provider :theme="darkTheme">
+  <n-config-provider>
     <router-view />
   </n-config-provider>
 </template>

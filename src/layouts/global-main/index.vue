@@ -1,4 +1,4 @@
 <script setup lang="ts"></script>
 <template>
-  <main>main</main>
+  <main class="flex-center w-full">main</main>
 </template>

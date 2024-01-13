@@ -1,4 +1,4 @@
 <script setup lang="ts"></script>
 <template>
-  <div>tab</div>
+  <div class="flex-center w-full h-44px bg-zinc-200">tab</div>
 </template>
