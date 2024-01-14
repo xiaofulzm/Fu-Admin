@@ -1,19 +1,24 @@
-<script setup lang="ts">
+<!-- <script setup lang="ts">
 import type { MenuOption } from "naive-ui";
 import { h } from "vue";
 import SvgIcon from "~/components/svgIcon/index.vue";
 import Logo from "../components/logo.vue";
 
-function renderIcon(name) {
-  return () => h(SvgIcon, { name });
-}
+import { userSettingsStore,userRouterStore} from "~/store";
+const settingsStore = userSettingsStore()
+const routerStore = userRouterStore();
+
+console.log(routerStore.menu);
+
+// function renderIcon(name) {
+//   return () => h(SvgIcon, { name });
+// }
 
 const menuOptions: MenuOption[] = [
   {
     label: "且听风吟",
-    key: "hear-the-wind-sing",
+    key: "home",
     href: "https://baike.baidu.com/item/%E4%B8%94%E5%90%AC%E9%A3%8E%E5%90%9F/3199",
-    icon: renderIcon("home"),
   },
   {
     label: "1973年的弹珠玩具",
@@ -61,7 +66,7 @@ const menuOptions: MenuOption[] = [
       },
       {
         label: "食物",
-        key: "food",
+        key: "home",
         children: [
           {
             label: "三明治",
@@ -76,12 +81,38 @@ const menuOptions: MenuOption[] = [
     ],
   },
 ];
+
+function renderMenuIcon (option: MenuOption) {
+  // console.log(option)
+//         // 渲染图标占位符以保持缩进
+//         if (option.key === 'sheep-man') return true
+//         // 返回 falsy 值，不再渲染图标及占位符
+  if (!option.key) return null
+  return h(SvgIcon,{name: <string>option.key})
+}
+
+function handleUpdateValue(key,data){
+  console.log(key,data);
+  
+}
+
 </script>
 <template>
-  <aside class="fu-menu w-220px bg-light-100 color">
-    <Logo />
+  <aside 
+    class="fu-menu aside-w transition-all-300" 
+    :class="settingsStore.collapsed?'aside-w-min':'aside-w'" >
+    <Logo :collapsed="settingsStore.collapsed"  />
     <n-scrollbar class="flex-1-hidden">
-      <n-menu :options="menuOptions" :root-indent="18" />
+      <n-menu 
+        :options="routerStore.menu"
+        :root-indent="18"
+        :indent="18"
+        :collapsed="settingsStore.collapsed"
+        :collapsed-icon-size="20"
+        :collapsed-width="64"
+        :render-icon="renderMenuIcon"
+        @update:value = "handleUpdateValue"
+       />
     </n-scrollbar>
   </aside>
 </template>
@@ -94,5 +125,6 @@ const menuOptions: MenuOption[] = [
   flex-direction: column;
   height: 100%;
   box-shadow: 2px 0 8px #1d23290d;
+  
 }
-</style>
+</style> -->

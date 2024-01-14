@@ -1,8 +1,20 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+interface Props {
+  collapsed: boolean;
+}
+const props = withDefaults(defineProps<Props>(), {
+  collapsed: false,
+});
+</script>
 
 <template>
-  <div class="pl-18px flex items-center w-full h-50px">
-    <SvgIcon name="home" />
-    <h1 class="pl-12px">Fu-Admin</h1>
+  <div
+    class="pl-18px flex items-center h-50px"
+    :class="props.collapsed ? 'aside-w-min' : 'aside-w'"
+  >
+    <SvgIcon name="fu" />
+    <h1 v-if="!props.collapsed" class="pl-12px text-16px font-semibold">
+      Fu-Admin
+    </h1>
   </div>
 </template>
