@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 
-export const userSettingsStore = defineStore("settings", {
+export const useSettingsStore = defineStore("settings", {
   state: () => {
     return {
       collapsed: false,

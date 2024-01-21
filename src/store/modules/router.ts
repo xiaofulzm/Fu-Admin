@@ -1,25 +1,57 @@
 import { defineStore } from "pinia";
 import type { RouteRecordRaw } from "vue-router";
-
 import { constantRoutes } from "~/router";
 
 console.log(constantRoutes);
 
+const m = [
+  {
+    label: "一级菜单",
+    key: "one",
+    icon: "home",
+    show: true,
+    path: "/one",
+    comNmae: "one",
+    pagePath: "basic",
+    keepAlive: false,
+    noewOpen: false,
+    query: "",
+    children: [
+      {
+        label: "二级菜单",
+        key: "two",
+        icon: "home",
+        show: true,
+        path: "/one/two",
+        comNmae: "two",
+        pagePath: "one/two",
+        keepAlive: false,
+        noewOpen: false,
+        children: [
+          {
+            label: "三级菜单",
+            key: "three",
+            icon: "home",
+            show: true,
+            path: "/one/two/three",
+            comNmae: "three",
+            pagePath: "one/two/three",
+            keepAlive: false,
+            noewOpen: false,
+            children: [],
+          },
+        ],
+      },
+    ],
+  },
+];
+
 interface RouteState {
   route: RouteRecordRaw[];
-  menu: menuItem[];
+  menu: MenuItem[];
 }
 
-interface menuItem {
-  label: string;
-  key: string;
-  icon: string;
-  show: boolean;
-  path: string;
-  children?: menuItem[];
-}
-
-export const userRouterStore = defineStore("router", {
+export const useRouterStore = defineStore("router", {
   state: (): RouteState => {
     return {
       route: [],
@@ -30,15 +62,9 @@ export const userRouterStore = defineStore("router", {
           icon: "home",
           show: true,
           path: "/home",
-        },
-        {
-          label: "登录",
-          key: "login",
-          icon: "login",
-          show: true,
-          path: "/login",
           children: [],
         },
+        ...m,
       ],
     };
   },
@@ -46,5 +72,15 @@ export const userRouterStore = defineStore("router", {
     setCollapsed(bool: Boolean) {
       this.collapsed = bool;
     },
+    async getRouter() {
+      const router = await filterAsyncRouter(m);
+      return router;
+    },
   },
 });
+
+function filterAsyncRouter(data) {
+  console.log(data);
+
+  return data;
+}

@@ -4,8 +4,9 @@ import store from "./store";
 import router from "./router";
 import "~/styles/css/index.css";
 
+import "~/router/permission";
+
 import loadPlugins from "./plugins";
-("./plugins");
 
 const app = createApp(App);
 

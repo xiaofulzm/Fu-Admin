@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { storeToRefs } from "pinia";
-import { userSettingsStore } from "~/store";
-const settingsStore = userSettingsStore();
+import { useSettingsStore } from "~/store";
+const settingsStore = useSettingsStore();
 const { collapsed } = storeToRefs(settingsStore);
 </script>
 <template>

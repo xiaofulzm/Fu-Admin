@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { userSettingsStore } from "~/store";
-const settingsStore = userSettingsStore();
+import { useSettingsStore } from "~/store";
+const settingsStore = useSettingsStore();
 </script>
 <template>
   <main
