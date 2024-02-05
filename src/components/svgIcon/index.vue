@@ -5,6 +5,7 @@ defineOptions({ name: "SvgIcon" });
 
 interface Props {
   prefix?: string;
+  color?: string;
   name: string;
 }
 
@@ -17,6 +18,6 @@ const symbolId = computed(() => `#${props.prefix}-${props.name}`);
 
 <template>
   <svg class="size-8" aria-hidden="true">
-    <use :href="symbolId" />
+    <use :href="symbolId" :fill="props.color" />
   </svg>
 </template>

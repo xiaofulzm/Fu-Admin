@@ -5,6 +5,9 @@ import UnoCSS from "unocss/vite";
 import Components from "unplugin-vue-components/vite";
 import { NaiveUiResolver } from "unplugin-vue-components/resolvers";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
+
+// import dynamicImportVars from '@rollup/plugin-dynamic-import-vars';
+
 import { resolve } from "path";
 
 export default defineConfig({
@@ -29,5 +32,6 @@ export default defineConfig({
       // 指定symbolId格式
       symbolId: "icon-[dir]-[name]",
     }),
+    // dynamicImportVars()
   ],
 });

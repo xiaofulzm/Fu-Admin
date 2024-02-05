@@ -11,15 +11,22 @@ router.beforeEach(async (to, from, next) => {
   const routerStore = useRouterStore();
   NProgress.start();
   if (isToken) {
-    const route = await routerStore.getRouter();
-    console.log("路由加载完成", route);
-
-    next();
+    if (routerStore.route.length === 0) {
+      const route = await routerStore.getRouter();
+      // console.log("路由加载完成", router);
+      route.forEach((item) => {
+        router.addRoute(item);
+      });
+      next({ ...to, replace: true });
+    } else {
+      next();
+    }
   } else {
     next("/login");
   }
 });
 
 router.afterEach(() => {
+  // console.log("路由加载完成", router);
   NProgress.done();
 });

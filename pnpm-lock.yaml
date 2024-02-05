@@ -28,6 +28,9 @@ dependencies:
     version: 4.2.5(vue@3.4.5)
 
 devDependencies:
+  '@rollup/plugin-dynamic-import-vars':
+    specifier: ^2.1.2
+    version: 2.1.2
   '@types/node':
     specifier: ^20.10.7
     version: 20.10.7
@@ -764,6 +767,22 @@ packages:
 
   /@polka/url@1.0.0-next.24:
     resolution: {integrity: sha512-2LuNTFBIO0m7kKIQvvPHN6UE63VjpmL9rnEEaOOaiSPbZK+zUOYIzBAWcED+3XYzhYsd/0mD57VdxAEqqV52CQ==}
+    dev: true
+
+  /@rollup/plugin-dynamic-import-vars@2.1.2:
+    resolution: {integrity: sha512-4lr2oXxs9hcxtGGaK8s0i9evfjzDrAs7ngw28TqruWKTEm0+U4Eljb+F6HXGYdFv8xRojQlrQwV7M/yxeh3yzQ==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      rollup: ^1.20.0||^2.0.0||^3.0.0||^4.0.0
+    peerDependenciesMeta:
+      rollup:
+        optional: true
+    dependencies:
+      '@rollup/pluginutils': 5.1.0
+      astring: 1.8.6
+      estree-walker: 2.0.2
+      fast-glob: 3.3.2
+      magic-string: 0.30.5
     dev: true
 
   /@rollup/pluginutils@5.1.0:
@@ -1523,6 +1542,11 @@ packages:
   /assign-symbols@1.0.0:
     resolution: {integrity: sha512-Q+JC7Whu8HhmTdBph/Tq59IoRtoy6KAm5zzPv00WdujX82lbAL8K7WVjne7vdCsAmbF4AYaDOPyO3k0kl8qIrw==}
     engines: {node: '>=0.10.0'}
+    dev: true
+
+  /astring@1.8.6:
+    resolution: {integrity: sha512-ISvCdHdlTDlH5IpxQJIex7BWBywFWgjJSVdwst+/iQCoEYnyOaQ95+X1JGshuBjGp6nxKUy1jMgE3zPqN7fQdg==}
+    hasBin: true
     dev: true
 
   /async-validator@4.2.5:

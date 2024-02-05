@@ -12,6 +12,9 @@ export default defineConfig({
     ["aside-w-min", { width: `var(--fu-aside-w-min)` }],
     ["p-aside-w", { "padding-left": "var(--fu-aside-w)" }],
     ["p-aside-w-min", { "padding-left": "var(--fu-aside-w-min)" }],
+    ["main-h", { height: "var(--fu-main-h)" }],
+    ["theme-bg", { "background-color": "var(--fu-bg-color)" }],
+    ["theme-text", { color: "var(--fu-text-color)" }],
   ],
   theme: {
     "bg-color": "var(--fu-bg-color)",

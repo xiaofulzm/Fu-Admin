@@ -1,25 +1,27 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { useRouter } from "vue-router";
 import Logo from "../components/logo.vue";
 import { useSettingsStore, useRouterStore } from "~/store";
-import { transformRouteToMenu } from "~/utils/menu";
+
+import { useRouterPush } from "~/composables";
+const { routerPush } = useRouterPush();
 
 const settingsStore = useSettingsStore();
+// eslint-disable-next-line prefer-const
 const routerStore = useRouterStore();
 
-const router = useRouter();
-console.log(router);
-const menuOptions = computed(() => transformRouteToMenu(routerStore.menu));
+const menuOptions = computed(() => routerStore.menu);
+
+// console.log(menuOptions,'menuOptions')
 
 function handleUpdateValue(key, data) {
-  console.log(key, data);
-  router.push({ path: data.path });
+  const query = data.query ? JSON.parse(data.query) : {};
+  routerPush(data.path, query, data.newOpen);
 }
 </script>
 <template>
   <aside
-    class="fu-menu aside-w transition-all-300"
+    class="fu-menu theme-bg aside-w transition-all-300"
     :class="settingsStore.collapsed ? 'aside-w-min' : 'aside-w'"
   >
     <Logo :collapsed="settingsStore.collapsed" />

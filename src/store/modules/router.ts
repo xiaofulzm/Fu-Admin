@@ -1,50 +1,12 @@
 import { defineStore } from "pinia";
 import type { RouteRecordRaw } from "vue-router";
-import { constantRoutes } from "~/router";
+import { transformRouteToMenu } from "~/utils";
 
-console.log(constantRoutes);
+import Layouts from "~/layouts/index.vue";
 
-const m = [
-  {
-    label: "一级菜单",
-    key: "one",
-    icon: "home",
-    show: true,
-    path: "/one",
-    comNmae: "one",
-    pagePath: "basic",
-    keepAlive: false,
-    noewOpen: false,
-    query: "",
-    children: [
-      {
-        label: "二级菜单",
-        key: "two",
-        icon: "home",
-        show: true,
-        path: "/one/two",
-        comNmae: "two",
-        pagePath: "one/two",
-        keepAlive: false,
-        noewOpen: false,
-        children: [
-          {
-            label: "三级菜单",
-            key: "three",
-            icon: "home",
-            show: true,
-            path: "/one/two/three",
-            comNmae: "three",
-            pagePath: "one/two/three",
-            keepAlive: false,
-            noewOpen: false,
-            children: [],
-          },
-        ],
-      },
-    ],
-  },
-];
+import { routerArr, menuArr } from "~/mock/router";
+
+const viewPage = import.meta.glob("~/view/**/*.vue");
 
 interface RouteState {
   route: RouteRecordRaw[];
@@ -55,7 +17,15 @@ export const useRouterStore = defineStore("router", {
   state: (): RouteState => {
     return {
       route: [],
-      menu: [
+      menu: [],
+    };
+  },
+  actions: {
+    setCollapsed(bool: Boolean) {
+      this.collapsed = bool;
+    },
+    setMenu() {
+      const arr = [
         {
           label: "首页",
           key: "home",
@@ -64,23 +34,78 @@ export const useRouterStore = defineStore("router", {
           path: "/home",
           children: [],
         },
-        ...m,
-      ],
-    };
-  },
-  actions: {
-    setCollapsed(bool: Boolean) {
-      this.collapsed = bool;
+      ];
+      return arr;
     },
     async getRouter() {
-      const router = await filterAsyncRouter(m);
-      return router;
+      const { route, menu } = await filterAsyncRouter(routerArr);
+      this.route = route;
+      this.menu = menu;
+      return route;
     },
   },
 });
 
 function filterAsyncRouter(data) {
-  console.log(data);
+  function routeFn(data) {
+    if (data.length === 0) return [];
+    return data.map((item) => {
+      if (item?.children.length > 0) {
+        if (item.pagePath === "basic") {
+          // console.log('basic')
+          item.component = Layouts;
+        }
+        item.children = routeFn(item.children);
+      } else {
+        item.component = loadView(item.pagePath);
+      }
+      // console.log(item,'item')
+      return filterRoute(item);
+    });
+  }
 
-  return data;
+  const route = routeFn(data);
+  const menu = transformRouteToMenu(menuArr);
+
+  return { route, menu };
+}
+
+interface RouteItem {
+  path: string;
+  name: string;
+  meta?: RouteMeta;
+  component: () => Promise<typeof import("*.vue")>;
+  children?: RouteItem[];
+}
+
+interface RouteMeta {
+  icon: string;
+  title: string;
+  query: string;
+  newOpen: boolean;
+  keepAlive: boolean;
+}
+
+function filterRoute(data) {
+  // console.log(data)
+  const newItem: RouteItem = {
+    path: data.path,
+    name: data.comName,
+    component: data.component,
+    meta: {
+      icon: data.icon,
+      title: data.label,
+      query: data.query,
+      newOpen: data.newOpen,
+      keepAlive: data.keepAlive,
+    },
+  };
+  if (data?.children.length > 0) {
+    newItem.children = data.children;
+  }
+  return newItem;
+}
+function loadView(pagrPath: string) {
+  const path = `/src/view/${pagrPath}/index.vue`;
+  return viewPage[path];
 }

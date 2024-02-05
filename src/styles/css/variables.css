@@ -1,4 +1,11 @@
 :root {
   --fu-aside-w: 220px;
   --fu-aside-w-min: 64px;
+  --fu-main-h: calc(100vh - 94px);
+  --fu-bg-color: #fff;
+  --fu-text-color: rgb(51, 54, 57);
+}
+.dark:root {
+  --fu-bg-color: rgb(24, 24, 28);
+  --fu-text-color: rgba(255, 255, 255, 0.82);
 }

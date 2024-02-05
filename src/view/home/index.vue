@@ -1,5 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div>home</div>
+  <div>
+    <n-card>home</n-card>
+  </div>
 </template>

@@ -9,7 +9,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 <template>
   <div
-    class="pl-18px flex items-center h-50px"
+    class="pl-18px flex items-center h-50px theme-text"
     :class="props.collapsed ? 'aside-w-min' : 'aside-w'"
   >
     <SvgIcon name="fu" />

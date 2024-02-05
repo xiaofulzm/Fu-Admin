@@ -3,8 +3,6 @@ import SvgIcon from "~/components/svgIcon/index.vue";
 
 //  路由参数转为菜单数据
 export function transformRouteToMenu(menu: MenuItem[]): TransformMenuOption[] {
-  // console.log(menu,'----------')
-  // const data = toRaw(menu);
   return recurrenceMenu(menu);
 }
 

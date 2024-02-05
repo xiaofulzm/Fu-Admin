@@ -4,9 +4,9 @@ const settingsStore = useSettingsStore();
 </script>
 <template>
   <main
-    class="flex-center w-full transition-all-300"
+    class="flex-center theme-bg flex-1 w-full main-h transition-all-300"
     :class="settingsStore.collapsed ? 'p-aside-w-min' : 'p-aside-w'"
   >
-    main
+    <router-view />
   </main>
 </template>
