@@ -5,15 +5,17 @@
 // Read more: https://github.com/vuejs/core/pull/3399
 export {}
 
-declare module "vue" {
+declare module 'vue' {
   export interface GlobalComponents {
-    NButton: (typeof import("naive-ui"))["NButton"];
-    NCard: (typeof import("naive-ui"))["NCard"];
-    NConfigProvider: (typeof import("naive-ui"))["NConfigProvider"];
-    NMenu: (typeof import("naive-ui"))["NMenu"];
-    NScrollbar: (typeof import("naive-ui"))["NScrollbar"];
-    RouterLink: (typeof import("vue-router"))["RouterLink"];
-    RouterView: (typeof import("vue-router"))["RouterView"];
-    SvgIcon: (typeof import("./src/components/svgIcon/index.vue"))["default"];
+    NButton: (typeof import("naive-ui"))["NButton"]
+    NCard: typeof import('naive-ui')['NCard']
+    NConfigProvider: typeof import('naive-ui')['NConfigProvider']
+    NMenu: typeof import('naive-ui')['NMenu']
+    NScrollbar: typeof import('naive-ui')['NScrollbar']
+    NTag: typeof import('naive-ui')['NTag']
+    NTooltip: typeof import('naive-ui')['NTooltip']
+    RouterLink: typeof import('vue-router')['RouterLink']
+    RouterView: typeof import('vue-router')['RouterView']
+    SvgIcon: typeof import('./src/components/svgIcon/index.vue')['default']
   }
 }

@@ -21,7 +21,7 @@ function handleUpdateValue(key, data) {
 </script>
 <template>
   <aside
-    class="fu-menu theme-bg aside-w transition-all-300"
+    class="fu-menu theme-box theme-color aside-w transition-all-300"
     :class="settingsStore.collapsed ? 'aside-w-min' : 'aside-w'"
   >
     <Logo :collapsed="settingsStore.collapsed" />
@@ -46,6 +46,6 @@ function handleUpdateValue(key, data) {
   display: flex;
   flex-direction: column;
   height: 100%;
-  box-shadow: 2px 0 8px #1d23290d;
+  // box-shadow: 2px 0 8px #1d23290d;
 }
 </style>

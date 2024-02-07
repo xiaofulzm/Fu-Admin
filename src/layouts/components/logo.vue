@@ -12,7 +12,7 @@ const props = withDefaults(defineProps<Props>(), {
     class="pl-18px flex items-center h-50px theme-text"
     :class="props.collapsed ? 'aside-w-min' : 'aside-w'"
   >
-    <SvgIcon name="fu" />
+    <SvgIcon class="size-8" name="fu" />
     <h1 v-if="!props.collapsed" class="pl-12px text-16px font-semibold">
       Fu-Admin
     </h1>

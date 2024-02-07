@@ -5,6 +5,7 @@ export default defineConfig({
   shortcuts: {
     "flex-center": "flex justify-center items-center",
     "flex-1-hidden": "flex-1 overflow-hidden",
+    "theme-color": "theme-bg theme-text",
   },
   rules: [
     // [/^aside-(\d+)$/,s => ({width: `var(--fu-aside-${s})`})],
@@ -15,8 +16,12 @@ export default defineConfig({
     ["main-h", { height: "var(--fu-main-h)" }],
     ["theme-bg", { "background-color": "var(--fu-bg-color)" }],
     ["theme-text", { color: "var(--fu-text-color)" }],
+    ["theme-box", { "box-shadow": "var(--fu-box-shadow)" }],
+    ["header-border", { "border-bottom": "var(--fu-header-shadow)" }],
   ],
   theme: {
-    "bg-color": "var(--fu-bg-color)",
+    colors: {
+      theme_color: "rgb(var(--fu-text-color))",
+    },
   },
 });

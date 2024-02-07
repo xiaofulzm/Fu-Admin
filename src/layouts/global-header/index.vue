@@ -9,18 +9,19 @@ const { collapsed } = storeToRefs(settingsStore);
 </script>
 <template>
   <header
-    class="flex items-center w-full h-50px transition-all-300"
+    class="flex header-border items-center theme-color w-full h-50px transition-all-300"
     :class="collapsed ? 'p-aside-w-min' : 'p-aside-w'"
   >
     <div class="w-1/5">
       <SvgIcon
         @click="settingsStore.setCollapsed(!collapsed)"
-        class="cursor-pointer"
+        class="cursor-pointer size-8"
         :class="collapsed ? 'fold' : 'spread'"
         name="fold"
+        color="var(--fu-text-color)"
       />
     </div>
-    <div class="w-3/5 bg-slate-100">header</div>
+    <div class="w-3/5">1</div>
     <div class="w-1/5">
       <Theme />
     </div>

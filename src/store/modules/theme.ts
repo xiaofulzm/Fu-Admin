@@ -3,7 +3,7 @@ import { defineStore } from "pinia";
 import { defaultSettings } from "~/config";
 import type { LayoutSettings } from "~/config";
 
-console.log(defaultSettings);
+// console.log(defaultSettings);
 
 interface ThemeStore {
   theme: LayoutSettings["themeMode"];

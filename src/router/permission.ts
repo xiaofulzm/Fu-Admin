@@ -26,7 +26,8 @@ router.beforeEach(async (to, from, next) => {
   }
 });
 
-router.afterEach(() => {
+router.afterEach((to) => {
   // console.log("路由加载完成", router);
+  console.log(to, "to");
   NProgress.done();
 });

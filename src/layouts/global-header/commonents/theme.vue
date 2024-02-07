@@ -7,25 +7,29 @@ const themeStore = useThemeStore();
 
 console.log(themeStore);
 function handleTheme(m) {
-  console.log(m, "themeMode");
   document.documentElement.className = m;
   themeStore.setTheme(m);
 }
 </script>
 <template>
-  <div>
-    <SvgIcon
-      class="size-8"
-      @click="handleTheme('dark')"
-      v-if="themeStore.theme === 'light'"
-      name="light"
-    />
-    <SvgIcon
-      class="size-8"
-      @click="handleTheme('light')"
-      v-else
-      name="dark"
-      color="black"
-    />
-  </div>
+  <n-tooltip placement="bottom" trigger="hover">
+    <template #trigger>
+      <div class="flex-center w-36px h-full cursor-pointer">
+        <SvgIcon
+          class="size-8"
+          @click="handleTheme('dark')"
+          v-if="themeStore.theme === 'light'"
+          name="light"
+        />
+        <SvgIcon
+          class="size-6"
+          @click="handleTheme('light')"
+          v-else
+          name="dark"
+          color="var(--fu-text-color)"
+        />
+      </div>
+    </template>
+    主题切换
+  </n-tooltip>
 </template>
