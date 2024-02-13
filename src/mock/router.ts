@@ -1,7 +1,7 @@
 export const routerArr = [
   {
     label: "外部页面",
-    key: "one",
+    key: "/frame",
     icon: "frame",
     show: true,
     path: "/frame",
@@ -13,7 +13,7 @@ export const routerArr = [
     children: [
       {
         label: "Vue.js(内嵌)",
-        key: "vueDOC",
+        key: "/frame/vueDOC",
         icon: "vue",
         show: true,
         path: "/frame/vueDOC",
@@ -26,7 +26,7 @@ export const routerArr = [
       },
       {
         label: "Vite(内嵌)",
-        key: "ViteDOC",
+        key: "/frame/viteDOC",
         icon: "vite",
         show: true,
         path: "/frame/viteDOC",
@@ -39,7 +39,7 @@ export const routerArr = [
       },
       {
         label: "NaiveUi(外链)",
-        key: "NaiveUi",
+        key: "/frame/naiveUi",
         icon: "naiveUi",
         show: true,
         path: "/frame/naiveUi",
@@ -54,7 +54,7 @@ export const routerArr = [
   },
   {
     label: "一级菜单",
-    key: "one",
+    key: "/one",
     icon: "home",
     show: true,
     path: "/one",
@@ -66,7 +66,7 @@ export const routerArr = [
     children: [
       {
         label: "二级菜单",
-        key: "two",
+        key: "/one/two",
         icon: "home",
         show: true,
         path: "/one/two",
@@ -74,7 +74,20 @@ export const routerArr = [
         pagePath: "one/two",
         keepAlive: false,
         newOpen: false,
-        children: [],
+        children: [
+          {
+            label: "三级菜单",
+            key: "/one/two/three",
+            icon: "home",
+            show: true,
+            path: "/one/two/three",
+            comNmae: "three",
+            pagePath: "one/two/three",
+            keepAlive: false,
+            newOpen: false,
+            children: [],
+          },
+        ],
       },
     ],
   },
@@ -83,14 +96,14 @@ export const routerArr = [
 export const menuArr = [
   {
     label: "首页",
-    key: "home",
+    key: "/home",
     icon: "home",
     show: true,
     path: "/home",
   },
   {
     label: "外部页面",
-    key: "frame",
+    key: "/frame",
     icon: "frame",
     show: true,
     path: "/frame",
@@ -102,7 +115,7 @@ export const menuArr = [
     children: [
       {
         label: "Vue.js(内嵌)",
-        key: "vueDOC",
+        key: "/frame/vueDOC",
         icon: "vue",
         show: true,
         path: "/frame/vueDOC",
@@ -115,7 +128,7 @@ export const menuArr = [
       },
       {
         label: "Vite(内嵌)",
-        key: "ViteDOC",
+        key: "/frame/viteDOC",
         icon: "vite",
         show: true,
         path: "/frame/viteDOC",
@@ -143,7 +156,7 @@ export const menuArr = [
   },
   {
     label: "一级菜单",
-    key: "one",
+    key: "/one",
     icon: "home",
     show: true,
     path: "/one",
@@ -155,7 +168,7 @@ export const menuArr = [
     children: [
       {
         label: "二级菜单",
-        key: "two",
+        key: "/one/two",
         icon: "home",
         show: true,
         path: "/one/two",
@@ -164,18 +177,18 @@ export const menuArr = [
         keepAlive: false,
         newOpen: false,
         children: [
-          //   {
-          //     label: "三级菜单",
-          //     key: "three",
-          //     icon: "home",
-          //     show: true,
-          //     path: "/one/two/three",
-          //     comNmae: "three",
-          //     pagePath: "one/two/three",
-          //     keepAlive: false,
-          //     newOpen: false,
-          //     children: [],
-          //   },
+          {
+            label: "三级菜单",
+            key: "/one/two/three",
+            icon: "home",
+            show: true,
+            path: "/one/two/three",
+            comNmae: "three",
+            pagePath: "one/two/three",
+            keepAlive: false,
+            newOpen: false,
+            children: [],
+          },
         ],
       },
     ],

@@ -4,6 +4,8 @@
   --fu-main-h: calc(100vh - 94px);
   --fu-bg-color: #fff;
   --fu-colro-hover: rgba(255, 255, 255, 0.12);
+  --fu-primary-bg: rgba(24, 160, 88, 0.1);
+  --fu-primary-color: #18a058;
   --fu-text-color: rgb(51, 54, 57);
   --fu-box-shadow: 2px 0 8px rgba(29, 35, 41, 0.05);
   --fu-header-shadow: 2px solid rgba(29, 35, 41, 0.05);

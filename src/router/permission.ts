@@ -1,5 +1,5 @@
 import router from "~/router";
-import { useRouterStore } from "~/store";
+import { useRouterStore, useTabsStore } from "~/store";
 
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
@@ -27,7 +27,12 @@ router.beforeEach(async (to, from, next) => {
 });
 
 router.afterEach((to) => {
+  const { addTab } = useTabsStore();
   // console.log("路由加载完成", router);
-  console.log(to, "to");
+  addTab({
+    label: to.meta.title as string,
+    icon: to.meta.icon as string,
+    path: to.path,
+  });
   NProgress.done();
 });

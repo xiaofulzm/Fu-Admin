@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, watch, ref } from "vue";
+import { useRoute } from "vue-router";
+
 import Logo from "../components/logo.vue";
 import { useSettingsStore, useRouterStore } from "~/store";
 
@@ -9,9 +11,18 @@ const { routerPush } = useRouterPush();
 const settingsStore = useSettingsStore();
 // eslint-disable-next-line prefer-const
 const routerStore = useRouterStore();
+const route = useRoute();
+
+const acMenu = ref(route.path);
 
 const menuOptions = computed(() => routerStore.menu);
 
+watch(
+  () => route.path,
+  (newPath) => {
+    acMenu.value = newPath;
+  },
+);
 // console.log(menuOptions,'menuOptions')
 
 function handleUpdateValue(key, data) {
@@ -27,6 +38,7 @@ function handleUpdateValue(key, data) {
     <Logo :collapsed="settingsStore.collapsed" />
     <n-scrollbar class="flex-1-hidden">
       <n-menu
+        :value="acMenu"
         :options="menuOptions"
         :root-indent="18"
         :indent="18"

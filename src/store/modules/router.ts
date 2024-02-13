@@ -28,7 +28,7 @@ export const useRouterStore = defineStore("router", {
       const arr = [
         {
           label: "首页",
-          key: "home",
+          key: "/home",
           icon: "home",
           show: true,
           path: "/home",
