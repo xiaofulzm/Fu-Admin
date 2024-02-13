@@ -13,11 +13,11 @@ import { darkTheme, useThemeVars } from "naive-ui";
 import type { GlobalTheme } from "naive-ui";
 import dayjs from "dayjs";
 import { ref } from "vue";
-import { userStore } from "../../store/modules/user";
+import { useStore } from "../../store/modules/user";
 console.log(useThemeVars());
 
-const userState = userStore();
-console.log(userState.count);
+const useState = useStore();
+console.log(useState.count);
 
 const theme = ref<GlobalTheme | null>(darkTheme);
 
@@ -33,7 +33,7 @@ console.log(darkTheme);
       {{ dayjs(new Date()).format("YYYY-MM-DD HH:mm:ss") }}
       <n-button @click="theme = darkTheme">深色</n-button>
       <n-button @click="theme = null">浅色</n-button>
-      {{ userState.count }}
+      {{ useState.count }}
     </n-card>
   </n-config-provider>
 </template>

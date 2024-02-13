@@ -10,7 +10,7 @@ export const constantRoutes: RouteRecordRaw[] = [
     redirect: "/home",
     children: [
       {
-        path: "home",
+        path: "/home",
         component: () => import("~/view/home/index.vue"),
         name: "home",
         meta: {
@@ -22,7 +22,7 @@ export const constantRoutes: RouteRecordRaw[] = [
   },
   {
     path: "/login",
-    name: "login",
+    name: "Login",
     component: () => import("~/view/login/index.vue"),
     meta: {},
   },

@@ -1,5 +1,2 @@
 @import url("./reset.css");
-
-:root {
-  --fu-bg-color: "rgb(24, 24, 28)";
-}
+@import url("./variables");
